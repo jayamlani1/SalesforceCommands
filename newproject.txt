@@ -1,0 +1,28 @@
+Command to create a new project:
+
+A) sfdx force:project:create -n geolocation 
+
+This will create a folder called geolocation and some basic structure for the app:
+
+1) sfdx-project.json
+   It indicates that this is a Salesforce DX project, It also tells the Salesforce CLI where to put files when syncing between the project and scratch org.
+   As developer we specify: The paths to your source code, classes, and metadata. The namespace and the API version.
+2) config/project-scratch-def.json
+   Configuration of a scratch org
+3) force-app
+   Folder contains source code
+   
+ 
+B) Create a scratch org with alias:
+   sfdx force:org:create -s -f config/project-scratch-def.json -a GeoAppScratch
+   
+-s indicates this is a default org for now, we can use -u command from next time. Also -a is used for alias.
+
+C) Command to write data to scratch org:
+    sfdx force:data:record:create -s Account -v "Name='Marriott Marquis' BillingStreet='780 Mission St' BillingCity='San Francisco' BillingState='CA' BillingPostalCode='94103' Phone='(415) 896-1600' Website='www.marriott.com'"
+    
+D) Command to export data from scratch org:
+    sfdx force:data:tree:export -q "SELECT Name, BillingStreet, BillingCity, BillingState, BillingPostalCode, Phone, Website FROM Account WHERE BillingStreet != NULL AND BillingCity != NULL and BillingState != NULL" -d ./data
+
+E) Command to import data to 
+    sfdx force:data:tree:import --sobjecttreefiles data/Account.json
