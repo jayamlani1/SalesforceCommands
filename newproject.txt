@@ -26,3 +26,6 @@ D) Command to export data from scratch org:
 
 E) Command to import data to 
     sfdx force:data:tree:import --sobjecttreefiles data/Account.json
+
+F) Command to deploy 
+   sfdx force:source:deploy -p force-app/main/default -u Sandboxname
