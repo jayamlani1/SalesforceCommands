@@ -29,3 +29,6 @@ E) Command to import data to
 
 F) Command to deploy 
    sfdx force:source:deploy -p force-app/main/default -u Sandboxname
+G) Command to login to sandbox is:
+   sfdx force:auth:web:login -r https://test.salesforce.com -a jayorg -d
+  interesting thing to note is that for sandbox you hvae to go to https://test.salesforce.com and not https://salesforce.com
