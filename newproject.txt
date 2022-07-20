@@ -40,4 +40,5 @@ K) Command for creating lightning event:
    sfdx force:lightning:event:create -n AccountsLoaded -d force-app/main/default/aura
 L) Lightening component:
    sfdx force:lightning:component:create -n AccountSearch -d force-app/main/default/aura
-   
+M) Pull changes/ meta data to local project from the local org.
+   sfdx force:source:pull
