@@ -34,4 +34,6 @@ G) Command to login to sandbox is:
   interesting thing to note is that for sandbox you hvae to go to https://test.salesforce.com and not https://salesforce.com
 I) Command to create a new apex class under a particular directory:
     sfdx force:apex:class:create -n AccountSearchController -d force-app/main/default/classes
+J) Command to push the change:
+    sfdx force:source:push
     
