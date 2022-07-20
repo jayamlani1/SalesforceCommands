@@ -36,4 +36,8 @@ I) Command to create a new apex class under a particular directory:
     sfdx force:apex:class:create -n AccountSearchController -d force-app/main/default/classes
 J) Command to push the change:
     sfdx force:source:push
-    
+K) Command for creating lightning event:
+   sfdx force:lightning:event:create -n AccountsLoaded -d force-app/main/default/aura
+L) Lightening component:
+   sfdx force:lightning:component:create -n AccountSearch -d force-app/main/default/aura
+   
