@@ -1,8 +1,20 @@
-First we create a new lightning component: AccountLocator, this creates a new file AccountLocator.cmp, edit this file and this can contain both the 
+Architecture Steps:
+--> Create a lightning component which acts like a place holder and create a custom tab for the lightning component.
+
+
+[Step one] Create a new lightning component: AccountLocator, this creates a new file AccountLocator.cmp, edit this file and this can contain both the 
 html markup and other aura or lightning web components.
 
 force:appHostable interface means it can be displayed in custom tab. 
 flexipage:availableForAllPageTypes this component can be added to Lightning pages using Ligthning App Builder.
 
 The <lightning:layout> and <lightning:layoutItem> tags define a responsive layout based on a 12-column grid system.
+
+[Step Two] Create apex controller
+
+The with sharing keyword enforces the sharing rules that apply to the current user when this Apex class works with records.
+The @AuraEnabled annotation exposes this method to your Lightning components.
+The List<List<SObject>> searchResults holds the SOSL query results.
+The FIND :searchTerm specifies what text to search for in account fields.
+The RETURNING Account clause specifies which account fields to return and how to order the results.
 
