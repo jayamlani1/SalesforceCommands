@@ -1,0 +1,32 @@
+/*
+ * Jay Amlani(jamlani@guardanthealth.com)
+ * 07/22/2022
+ * Apex class to share the record with PMO, Tech Lead, SQA Lead, and BA.
+ */
+public class GHProjectSharing 
+{
+	public static boolean manualShareReadWrite(Id recordId, Id userId)
+    {
+        inov8__PMT_Project__share projectshare = new inov8__PMT_Project__share();
+        projectshare.ParentId = recordId;
+        projectshare.UserOrGroupId = UserId;
+        projectshare.AccessLevel = 'ReadWrite';
+        Database.SaveResult sr = Database.insert(projectshare,false);
+        
+        if(sr.isSuccess())
+        {
+            return true;
+        }
+        else
+        {
+            Database.Error err = sr.getErrors()[0];
+            if(err.getStatusCode() == StatusCode.FIELD_FILTER_VALIDATION_EXCEPTION  &&
+                err.getMessage().contains('AccessLevel'))
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
+}
